@@ -23,19 +23,214 @@ The section headers below provide a suggested structure.  You should feel free t
 \label{sect:functional-specifications}
 The following features have been developed and are accessible in the deployed application. Each contributes directly to the project's objectives of creating a flexible, user-friendly application that can enhance the user's productivity.
 
-\subsection{User Authentication and Authorization}
-\textbf{Description:} Users can register and log in and will be restricted to visit and pages in the app while no logged in. 
-
-\textbf{Contribution to Objectives:} This ensures secure access to the system and will allow the user to create and save habits which is essential in the applications functionality. It will also allow the user to access their account on any device.
-
-\textbf{Location:} When the application is first opened you will be greeted with the login page. If you don't already have an account you and switch to the sign-in page to create one. If you try to access any other pages when you are not logged in you will be redirected to the login page.
-
 \subsection{Habit Creation and Management}
-\textbf{Description:} Interface for users to add new habits with customization fields.
+\subsubsection{Creating New Habits:}
+\begin{itemize}
+    \item \textbf{Description:} Users can create new habits with customisable details including name, description, type (build or quit), colour, schedule options, and optional goals.
+    \item \textbf{Contribution to Objectives:} This is the core functionality that allows users to define specific behaviours they want to track, making the app personalized and adaptable to diverse habit-building needs.
+    \item \textbf{Location:} On the habits page, which is the fist page that is shown on login, there is an add habit button which which takes you to a form. This form is used for the user to customise that habit that they are creating.
+\end{itemize}
 
-\textbf{Contribution to Objectives:} The user will have customisable habit tracking as they can choose between creating a 'build' habit (developing new behaviours) or a 'quit' habit (breaking bad habits). They can set the goal value of the habit and the units that the habit uses. They can also visually customise the habit by selecting the colour of the habit. After the habit is created the user can edit the habit in anyway they like so that they don't have to delete it and create a new one.
+\subsubsection{Habit Types (Build vs Quit):}
+\begin{itemize}
+    \item \textbf{Description:} The app distinguishes between habits to build (positive behaviours to adopt) and habits to quit (negative behaviours to eliminate).
+    \item \textbf{Contribution to Objectives:} This differentiation supports different behaviour change strategies and accommodates customisation of habits for the user.
+    \item \textbf{Location:} On the habit page the user will be able to tell the difference between a quitting habit and a building habit. When the user is creating a habit using the form at the top of the form they will choose between a build or quit habit.
+\end{itemize}
 
-\textbf{Location:} All of the habit creation and management will be found on the habits page which is the first page that shows when the user logs-in to the app.
+\subsubsection{Habit Customisation:}
+\begin{itemize}
+    \item \textbf{Description:} Users can customise habits with colour-coding, descriptions, and personal tracking parameters.
+    \item \textbf{Contribution to Objectives:} Customisation enhances user engagement by allowing personal expression and visual organization of different habits.
+    \item \textbf{Location:} All customisation of the habits can be done when the user presses the add habit button, which opens the form for the user to create their habit.
+\end{itemize}
+
+\subsubsection{Editing Existing Habits:}
+\begin{itemize}
+    \item \textbf{Description:} Users can modify all aspects of their habits after creation, including schedules, goals, and appearance.
+    \item \textbf{Contribution to Objectives:} Allows flexibility as users refine their habits and tracking needs over time, preventing abandonment when circumstances change.
+    \item \textbf{Location:} In the top right corner of every habit there is a little pencil icon. When it is pressed a form is open with pre-filled in data which the user can change to edit the habit to their liking.
+\end{itemize}
+
+\subsection{Scheduling and Frequency}
+\subsubsection{Interval-Based Scheduling:}
+\begin{itemize}
+    \item \textbf{Description:} Users can set habits to repeat at regular intervals (every X days).
+    \item \textbf{Contribution to Objectives:} Supports habits that don't follow a weekly pattern and accommodates varying frequency needs.
+    \item \textbf{Location:} In the add habit and edit habit forms the user can choose to schedule the habit at regular intervals. So they enter a number for the habit to show every X days.
+\end{itemize}
+
+\subsubsection{Weekly Day-Based Scheduling}
+\begin{itemize}
+    \item \textbf{Description:} Users can schedule habits for specific days of the week (e.g., Monday, Wednesday, Friday).
+    \item \textbf{Contribution to Objectives:} Accommodates routines that follow weekly patterns, supporting integration with typical work/life schedules.
+    \item \textbf{Location:} In the add habit and edit habit forms the user can choose to schedule the habit by selecting days of the week. The user will highlight the days of the week they want the habit to appear.
+\end{itemize}
+
+\subsubsection{Instance Generation}
+\begin{itemize}
+    \item \textbf{Description:} The system automatically generates future instances of habits based on their scheduling patterns.
+    \item \textbf{Contribution to Objectives:} Ensures users always have upcoming habits ready to track without manual creation.
+    \item \textbf{Location:} Using the calendar at the top of the habits page, the user can select future days of the week to see the habit they will have to complete. The user can also check the habits on dates that are on future weeks.
+\end{itemize}
+
+\subsection{Goal Setting and Tracking}
+\subsubsection{Numeric Goal Setting}
+\begin{itemize}
+    \item \textbf{Description:} For "build" habits, users can set specific numeric goals with custom units (e.g., read 30 pages, meditate 20 minutes).
+    \item \textbf{Contribution to Objectives:} Provides clear, measurable targets that make progress tracking more concrete and satisfying.
+    \item \textbf{Location:} Clicking on the habit will allow the user to enter how much progress they have made so far on the habit.
+\end{itemize}
+
+\subsubsection{Binary Completion Tracking}
+\begin{itemize}
+    \item \textbf{Description:} For "quit" habits, users track success with yes/no completion options.
+    \item \textbf{Contribution to Objectives:} Simplifies tracking for avoidance-based habits where the goal is simply not engaging in a behaviour.
+    \item \textbf{Location:} Clicking on the habit will allow the user to enter if they have completed the habit or not.
+\end{itemize}
+
+\subsubsection{Progress Recording}
+\begin{itemize}
+    \item \textbf{Description:} Users can record daily progress toward habit goals including partial completion.
+    \item \textbf{Contribution to Objectives:} Encourages consistent habit engagement by acknowledging incremental progress rather than all-or-nothing success.
+    \item \textbf{Location:} Clicking on the habit will allow the user to enter how much progress they have made so far on the habit.
+\end{itemize}
+
+\subsubsection{Habit Streak Tracking}
+\begin{itemize}
+    \item \textbf{Description:} Each habit has a streak of how many days in a row the user has fully completed the habit.
+    \item \textbf{Contribution to Objectives:} This encourages the user to keep up with their habits as the larger their streak goes, the harder the user will try to keep it going.
+    \item \textbf{Location:} The streak is shown by a fire icon, followed by a number (the number of days the streak is on). It's found on every habit next to the edit habit button.
+\end{itemize}
+
+\subsection{Visualisation and Statistics}
+\subsubsection{Calendar View}
+\begin{itemize}
+    \item \textbf{Description:} Provides a monthly calendar visualization showing total habit completion of each day for the month.
+    \item \textbf{Contribution to Objectives:} Gives users a holistic view of their habit consistency, helping identify patterns and trends.
+    \item \textbf{Location:} This can be found on the calendar page which can be accessed using the menu at the bottom of the screen.
+\end{itemize}
+
+\subsubsection{Average Completion Percentage}
+\begin{itemize}
+    \item \textbf{Description:} Shows the average completion percentage of each day for the whole month
+    \item \textbf{Contribution to Objectives:} Provides a quick measure of overall habit success to allow the user to track their progress.
+    \item \textbf{Location:} There is a circle at the bottom of the calendar on the calendar page that shows the average completion percentage for that month.
+\end{itemize}
+
+\subsubsection{Daily Streak Tracking}
+\begin{itemize}
+    \item \textbf{Description:} Records and displays the current and longest streak of consecutive days with all the habit fully completed.
+    \item \textbf{Contribution to Objectives:} This encourages the user to keep up with their habits as the larger their streak goes, the harder the user will try to keep it going.
+    \item \textbf{Location:} The streaks are found in between the monthly calendar and the average completion percentage circle, on the calendar page.
+\end{itemize}
+
+\subsection{Date Navigation and Filtering}
+\subsubsection{Weekly Calendar Navigation}
+\begin{itemize}
+    \item \textbf{Description:} A scrollable weekly calendar view allowing selection of specific dates to view and manage habits
+    \item \textbf{Contribution to Objectives:} Provides intuitive temporal navigation for managing habits on different days.
+    \item \textbf{Location:} On the habits page at the top of the screen.
+\end{itemize}
+
+\subsubsection{Date-Specific Habit Filtering}
+\begin{itemize}
+    \item \textbf{Description:} Displays only relevant habits for the selected date based on scheduling rules.
+    \item \textbf{Contribution to Objectives:} Reduces cognitive load by showing only what's relevant for the current day or selected date.
+    \item \textbf{Location:} By using the weekly calendar on the habits page the habits that are displays will only be relevant to the date selected.
+\end{itemize}
+
+\subsection{Data Persistence and Synchronization}
+\subsubsection{User Authentication}
+\begin{itemize}
+    \item \textbf{Description:} Secure user account system with email-based authentication.
+    \item \textbf{Contribution to Objectives:} Protects user data and enables personalized habit tracking.
+    \item \textbf{Location:} The user can create an account using the sign in page. If they already have an account they can use the login page to login to their account.
+\end{itemize}
+
+\subsection{User Interface Features}
+\subsubsection{Theme Support}
+\begin{itemize}
+    \item \textbf{Description:} Application supports light and dark themes with appropriate colour schemes.
+    \item \textbf{Contribution to Objectives:} Enhances user experience and accessibility in different lighting conditions and according to user preference.
+    \item \textbf{Location:} The user can switch between light and dark mode using a selector that can be found in the settings page.
+\end{itemize}
+
+\subsubsection{Responsive Design}
+\begin{itemize}
+    \item \textbf{Description:} UI adapts to different screen sizes and orientations.
+    \item \textbf{Contribution to Objectives:} Ensures a consistent experience across different devices.
+    \item \textbf{Location:} This is found through out the whole app.
+\end{itemize}
 
 \section{Non-functional specifications}
+\subsection{Security}
+\subsubsection{Password Hashing}
+\begin{itemize}
+    \item \textbf{Description:} User passwords are securely hashed before storage.
+    \item \textbf{Contribution to Objectives:} Protects user credentials even in case of a data breach.
+    \item \textbf{Location:} All of the hashing is done on the client side so only the hashed password gets stored on the server side.
+\end{itemize}
+
+\subsection{Reliability}
+\subsubsection{Error Handling}
+\begin{itemize}
+    \item \textbf{Description:} Comprehensive error handling for all API calls and user interactions.
+    \item \textbf{Contribution to Objectives:} Ensures graceful failure and prevents app crashes when operations fail.
+    \item \textbf{Location:} Can be found throughout the app.
+\end{itemize}
+
+\subsection{Usability}
+\subsubsection{Intuitive UI Elements}
+\begin{itemize}
+    \item \textbf{Description:} User interface designed with intuitive controls and visual feedback.
+    \item \textbf{Contribution to Objectives:} Reduces learning curve and improves user experience.
+    \item \textbf{Location:} Can be found throughout the app.
+\end{itemize}
+
+\subsubsection{Form Validation}
+\begin{itemize}
+    \item \textbf{Description:} Input validation for all user-submitted data.
+    \item \textbf{Contribution to Objectives:} Prevents errors from invalid data and provides immediate feedback.
+    \item \textbf{Location:} Can be found throughout the app (e.g., logging in or signing in, creating or editing a habit, inputting habit progress, etc.)
+\end{itemize}
+
+\subsection{Maintainability}
+\subsubsection{Modular Architecture}
+\begin{itemize}
+    \item \textbf{Description:} Code organized into reusable, single-responsibility components.
+    \item \textbf{Contribution to Objectives:} Simplifies maintenance and enables easier feature additions or modifications.
+    \item \textbf{Location:} Found throughout all the files in the code.
+\end{itemize}
+
+\subsubsection{Typescript Implementation}
+\begin{itemize}
+    \item \textbf{Description:} Strong typing throughout the application using Typescript.
+    \item \textbf{Contribution to Objectives:} Catches type-related errors at compile time and improves code documentation.
+    \item \textbf{Location:} Used throughout the code.
+\end{itemize}
+
+\subsection{Compatibility}
+\subsubsection{Cross-platform Support}
+\begin{itemize}
+    \item \textbf{Description:} Implemented using React Native to work across different device types.
+    \item \textbf{Contribution to Objectives:} Provides consistent user experience on iOS, Android, and potentially web platforms.
+    \item \textbf{Location:} React Native components are used throughout the code.
+\end{itemize}
+
+\subsection{Data Management}
+\subsubsection{Efficient Data Storage}
+\begin{itemize}
+    \item \textbf{Description:} Optimized database schema with appropriate relationships and indexing.
+    \item \textbf{Contribution to Objectives:} Minimizes storage requirements while maintaining data integrity.
+    \item \textbf{Location:} Found in the server.js file in the project code.
+\end{itemize}
+
+\subsubsection{Offline Capability}
+\begin{itemize}
+    \item \textbf{Description:} Progress data and account details for the use is saved even when the app is closed.
+    \item \textbf{Contribution to Objectives:} Allows user to access account on different devices
+    \item \textbf{Location:} Data is saved on a cloud database.
+\end{itemize}
+
 \label{sect:non-functional-specifications}
