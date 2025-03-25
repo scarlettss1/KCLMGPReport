@@ -33,7 +33,14 @@ Provides REST endpoints (for example, /signup, /addHabit, /export/:email) to han
 \item \textbf{Database (MySQL via mysql2/promise)}:
 Stores user credentials, habit definitions, scheduling information, and user progress records. \end{itemize}
 
-Figure 5.1 (PUT DIAGRAM HERE) illustrates these layers. By separating the UI (client), the application logic (server), and persistent storage (database), each layer remains independently maintainable and secure.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{resources/component.pdf}
+    \caption{UML Component Diagram of our Habit-Tracker Application}
+    \label{fig:component_diagram}
+\end{figure}
+
+Figure 5.1 illustrates these layers. By separating the UI (client), the application logic (server), and storage (database), each layer remains independently maintainable and secure.
 
 \subsection{Key Design Decisions}
 
