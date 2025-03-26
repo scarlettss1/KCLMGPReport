@@ -25,14 +25,6 @@ If your team used manual testing as well as automated testing, it is important t
 \end{itemize}
 \end{expectations}
 
-\section{Approach and tools}
-\label{sect:testing:approach}
-
-\section{Quality assurance processes}
-\label{sect:testing:process}
-
-\section{Evaluation of testing}
-\label{sect:testing:evaluation}
 
 
 This chapter describes the testing approaches we used to ensure our habit-tracking application is reliable and working as expected. Throughout our development, we combined automated testing (using Jest, React Native Testing Library, and mocks) with targeted manual tests for cross-platform validation. While our automated coverage is high, our critical reflection reveals areas where we could have improved our quality assurance process.
@@ -71,7 +63,7 @@ Although manual checks can uncover issues that automated tests might miss, such 
 
 \subsection{Strengths} \begin{itemize} \item \textbf{Extensive Automated Coverage}: Our Jest tests are well-integrated, ensuring we can trust most core functionalities. Mocking external dependencies (network, storage, theming) keeps our tests deterministic and easier to maintain. \item \textbf{UI Testing}: By using React Native Testing Library, we test not just logic but actual user interactions (tapping buttons, text input, etc.). \item \textbf{Cross-Platform Verification}: Manual checks on iOS, Android, and web prevent platform-specific issues and ensures a consistent experience. \end{itemize}
 
-\subsection{Weaknesses and Reflections} \begin{itemize} \item \textbf{Fewer Formal Inspections}: We relied heavily on automation due to limited time. This left less room for structured peer review or code inspection, which can catch architecture-level or readability issues that tests miss. \item \textbf{Lack of External Black-Box Testing}: Although we occasionally showed demos to family/friends, we did not organise a broader group of external testers. This might have revealed usability issues or inconsistencies that a developer-focused approach could overlook. \item \textbf{Manual Tests Are Not Systematically Logged}: While we performed manual checks, we did not document them exhaustively in an appendix. A more thorough approach might reveal untested edge cases. \end{itemize}
+\subsection{Weaknesses and Reflections} \begin{itemize} \item \textbf{Fewer Formal Inspections}: We relied heavily on automation due to limited time. This left less room for structured peer review or code inspection, which can catch architecture-level or readability issues that tests miss. \item \textbf{Lack of External Black-Box Testing}: Although we occasionally showed demos to family/friends, we did not organise a broader group of external testers. This might have revealed usability issues or inconsistencies that a developer-focused approach could overlook. \item \textbf{Manual Tests were not Systematically Logged}: While we performed manual checks, we did not document them exhaustively in an appendix. A more thorough approach might reveal untested edge cases. \end{itemize}
 
 \subsection{Future Improvements} \begin{itemize} \item \textbf{More Peer Reviews}: In future we would review each other’s pull requests more often and thoroughly, which could reduce hidden defects early on. \item \textbf{Black-Box Testing:} Bringing in more people who haven’t seen our code would provide fresh perspectives and more thorough user feedback. \item \textbf{Formalising Manual Test Cases}: Storing each manual test case (actions, expected results) in a shared document would add clarity and accountability for each test run.
 \item \textbf{Automated Testing during Development}: We would prioritise the need test more thoroughly throughout the entire project, making sure no functionalities were left untested for longer than necessary.\end{itemize}
