@@ -33,3 +33,47 @@ If your team used manual testing as well as automated testing, it is important t
 
 \section{Evaluation of testing}
 \label{sect:testing:evaluation}
+
+
+This chapter describes the testing approaches we used to ensure our habit-tracking application is reliable and working as expected. Throughout our development, we combined automated testing (using Jest, React Native Testing Library, and mocks) with targeted manual tests for cross-platform validation. While our automated coverage is high, our critical reflection reveals areas where we could have improved our quality assurance process.
+
+\section{Approach and tools} \label{sect:testing:approach}
+
+\subsection{Automated Testing}
+
+We relied heavily on automated testing to make sure our features worked as expected. Each suite checks how the component renders, responds to user actions (e.g., button presses), and triggers any side effects (like functions in \texttt{lib/client}). This approach helps us confirm that our UI logic, data calls, and component behaviours work as intended.
+
+\paragraph{Tools Used} \begin{itemize} \item \textbf{Jest}: Our main test runner, responsible for executing the test suites. \item \textbf{React Native Testing Library}: Lets us simulate user interactions (like tapping buttons or typing text). \item \textbf{Some examples of our Mocking Techniques}: \begin{itemize} \item{AsyncStorage}: Replaces native storage calls so tests don’t fail on missing native modules. \item{Fetch}: Fakes server API calls, which means our tests do not depend on a real network. \item {Expo Router and ThemeContext:}
+We replace real navigation and theming with simple "fake" versions. This way, our tests focus only on the component’s behavior, rather than on actual screen transitions or styles. \item {Victory Charts}: This library uses SVG (Scalable Vector Graphics) to draw charts. In our tests, we swap the real chart components for simpler “mocks.” This means the charts don’t actually get rendered, and our tests run faster with fewer errors. For example, in \texttt{BuildHabitGraph.test.tsx}, we check that the chart component receives the right data without drawing any real SVG. \end{itemize} \end{itemize}
+
+
+\paragraph{Location of Automated Tests}\mbox{}\\
+
+We keep our tests in the \texttt{client/src/components/\_\_tests\_\_} folder, and we name each file after the component it tests. For example:
+
+\begin{itemize} \item \texttt{BuildHabitGraph.test.tsx}\item \texttt{WeeklyCalendar.test.tsx} \item \texttt{SettingsPage.test.tsx} \end{itemize}
+
+This structure makes it easy to locate each test and ensures that test code remains closely tied to its corresponding component.
+
+One critical reflection is that we did not integrate automated testing as thoroughly as we had hoped during development. Although we did test throughout the entire project, many tests were only added later in the project, which in hindsight left some functionalities untested for longer than we would have liked.
+
+\subsection{Manual Testing}
+
+While automated tests validate most of our components and logic, we supplemented them with manual testing to ensure the application feels correct when being used. Each major functionality (e.g., habit creation, editing, exporting data) was checked on iOS, Android, and the web).
+
+\paragraph{Limits of Manual Testing}\mbox{}\\
+Although manual checks can uncover issues that automated tests might miss, such as subtle design issues or platform-specific bugs, this approach is slow and difficult to maintain for every new change. As a result, we focused our manual testing on critical features and cross-platform validation, rather than using it for every update.
+
+\subsection{Placeholder for Test Coverage Report} \label{sect:test-coverage} \vspace{12pt} \noindent \textit{[A summary of our automated test coverage results will appear here in the final report. The source coverage details (HTML pages) are located in the project’s \texttt{?} directory.]}
+
+
+\section{Evaluation of testing} \label{sect:testing:evaluation}
+
+\subsection{Strengths} \begin{itemize} \item \textbf{Extensive Automated Coverage}: Our Jest tests are well-integrated, ensuring we can trust most core functionalities. Mocking external dependencies (network, storage, theming) keeps our tests deterministic and easier to maintain. \item \textbf{UI Testing}: By using React Native Testing Library, we test not just logic but actual user interactions (tapping buttons, text input, etc.). \item \textbf{Cross-Platform Verification}: Manual checks on iOS, Android, and web prevent platform-specific issues and ensures a consistent experience. \end{itemize}
+
+\subsection{Weaknesses and Reflections} \begin{itemize} \item \textbf{Fewer Formal Inspections}: We relied heavily on automation due to limited time. This left less room for structured peer review or code inspection, which can catch architecture-level or readability issues that tests miss. \item \textbf{Lack of External Black-Box Testing}: Although we occasionally showed demos to family/friends, we did not organise a broader group of external testers. This might have revealed usability issues or inconsistencies that a developer-focused approach could overlook. \item \textbf{Manual Tests Are Not Systematically Logged}: While we performed manual checks, we did not document them exhaustively in an appendix. A more thorough approach might reveal untested edge cases. \end{itemize}
+
+\subsection{Future Improvements} \begin{itemize} \item \textbf{More Peer Reviews}: In future we would review each other’s pull requests more often and thoroughly, which could reduce hidden defects early on. \item \textbf{Black-Box Testing:} Bringing in more people who haven’t seen our code would provide fresh perspectives and more thorough user feedback. \item \textbf{Formalising Manual Test Cases}: Storing each manual test case (actions, expected results) in a shared document would add clarity and accountability for each test run.
+\item \textbf{Automated Testing during Development}: We would prioritise the need test more thoroughly throughout the entire project, making sure no functionalities were left untested for longer than necessary.\end{itemize}
+
+\noindent Overall, our mix of automated tests and manual checks gave us confidence in our software’s correctness and stability. However, we recognise that further improvements could be made to our testing to strengthen our quality assurance.
