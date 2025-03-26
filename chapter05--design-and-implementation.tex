@@ -54,7 +54,8 @@ Figure \ref{fig:component_diagram} illustrates these layers. By separating the U
 \item{src/app/(protected)/tabs/}: Contains the main habits, calendar, stats, and settings screens.
 \item{src/components/}: Contains reusable UI elements such as habit modals, calendars, graphs, themed text, and shared styles for consistent design.
 \item {src/lib/client.ts}: Centralises HTTP request logic to avoid repeating fetch calls across components. \end{itemize} 
-This modular structure improves code organisation, makes features easier to maintain, and encourages reuse of components across the app.
+This modular structure improves code organisation, makes features easier to maintain, and encourages reuse of components across the app, as shown in the SOLID design principles \cite{martin2002solid}.
+
 \item {Styling and Theming}:
 \begin{itemize} 
 \item The app uses shared colours and styles so that all screens look consistent.
