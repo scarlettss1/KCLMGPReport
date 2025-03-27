@@ -1,32 +1,6 @@
 \chapter{Testing}
 \label{chap:testing}
 
-\defaultInstructions
-
-\begin{length}
-There are no strict length requirements for this chapter.  However, it is important that the writing is clear and concise.  Avoid repeating yourself.  Make sure to clearly signpost evidence for claims.  It is expected that a typical project needs 1--5 pages, but this can vary considerably from project to project.
-\end{length}
-
-\begin{expectations}
-This chapter discusses how the software has been tested.  
-
-Start by identifying the different ways the team has used to test the software, including the tools used in each approach.  Below, a section title ``Approach and tools'' is provided a suggestion for a header under which to cover this.  The purpose of this section is to help the reader understand what testing is included in the software.  For each distinct testing approach, clearly identify its purpose, and the extent to which you relied on it.  Also, identify where in the source code or the report the reader can find evidence of each type of testing.
-
-The team may have used certain processes to ensure the quality of testing.  If so, explain what these were and how effective these approaches were.  If you decide to discuss this, it is important to identify evidence of the processes you employed.  For example, you could identify minuted meeting decisions that clearly demonstrate your team's application of a particular appraoch.  Unsupported claims tend not to be so convincing.
-
-A good report includes a critical evaluation covering both strengths and weaknesses.  Claims made in this evaluation should also be justified with evidence.  If your team has code coverage results, make sure to present summary results in the report, but identify the location of the source report (typically HTML pages) in the source code.  Again, unsupported claims remain unconvincing.
-
-If your team used manual testing as well as automated testing, it is important to include the following:
-\begin{itemize}
-\item What did your rely on manual testing for?  In other words, what was the purpose of manual testing.
-\item To what extent did you rely on manual testing for aspects of software testing that would ideally be automated.
-\item What are the respective limits of automated and manual testing.
-\item An appendix listing each manual test.  For each manual test, describe precisely the actions the tester must undertake and what they are expected to observe.  Also add when the test was last performed and whether it was successful.
-\end{itemize}
-\end{expectations}
-
-
-
 This chapter describes the testing approaches we used to ensure our habit-tracking application is reliable and working as expected. Throughout our development, we combined automated testing (using Jest, React Native Testing Library, and mocks) with targeted manual tests for cross-platform validation. While our automated coverage is high, our critical reflection reveals areas where we could have improved our quality assurance process.
 
 \section{Approach and tools} \label{sect:testing:approach}
@@ -56,14 +30,22 @@ While automated tests validate most of our components and logic, we supplemented
 \paragraph{Limits of Manual Testing}\mbox{}\\
 Although manual checks can uncover issues that automated tests might miss, such as subtle design issues or platform-specific bugs, this approach is slow and difficult to maintain for every new change, as Crispin and Gregory point out \cite{crispin2009agiletesting}. As a result, we focused our manual testing on critical features and cross-platform validation, rather than using it for every update.
 
-\subsection{Placeholder for Test Coverage Report} \label{sect:test-coverage} \vspace{12pt} \noindent \textit{[A summary of our automated test coverage results will appear here in the final report. The source coverage details (HTML pages) are located in the project’s \texttt{?} directory.]}
+\subsection{Test Coverage Report} \label{sect:test-coverage} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{resources/test_coverage.pdf}
+    \caption{Test Coverage Report of our Habit-Tracker Application}
+    \label{fig:test_coverage}
+\end{figure}
+
+Figure \ref{fig:test_coverage} shows our test coverage report. The source coverage details (HTML pages) are located in the project’s coverage/lcov-report folder, particularly in the index.html file. 
 
 
 \section{Evaluation of testing} \label{sect:testing:evaluation}
 
 \subsection{Strengths} \begin{itemize} \item \textbf{Extensive Automated Coverage}: Our Jest tests are well-integrated, ensuring we can trust most core functionalities. Mocking external dependencies (network, storage, theming) keeps our tests deterministic and easier to maintain. \item \textbf{UI Testing}: By using React Native Testing Library, we test not just logic but actual user interactions (tapping buttons, text input, etc.). \item \textbf{Cross-Platform Verification}: Manual checks on iOS, Android, and web prevent platform-specific issues and ensures a consistent experience. \end{itemize}
 
-\subsection{Weaknesses and Reflections} \begin{itemize} \item \textbf{Fewer Formal Inspections}: We relied heavily on automation due to limited time. This left less room for structured peer review or code inspection, which can catch architecture-level or readability issues that tests miss. \item \textbf{Lack of External Black-Box Testing}: Although we occasionally showed demos to family/friends, we did not organise a broader group of external testers. This might have revealed usability issues or inconsistencies that a developer-focused approach could overlook. \item \textbf{Manual Tests were not Logged}: While we performed manual checks, we did not document them exhaustively in a shared document. A more thorough approach might reveal untested edge cases. \end{itemize}
+\subsection{Weaknesses and Reflections} \begin{itemize} \item \textbf{Fewer Formal Inspections}: We relied heavily on automation due to limited time. This left less room for structured peer review or code inspection, which can catch architecture-level or readability issues that tests miss. \item \textbf{Lack of External Black-Box Testing}: Although we occasionally showed demos to family/friends, we did not organise a broader group of external testers. This might have revealed usability issues or inconsistencies that a developer-focused approach could overlook.\end{itemize}
 
 \subsection{Future Improvements} \begin{itemize} \item \textbf{More Peer Reviews}: In future we would review each other’s pull requests more often and thoroughly, which could reduce hidden defects early on. \item \textbf{Black-Box Testing:} Bringing in more people who haven’t seen our code would provide fresh perspectives and more thorough user feedback. \item \textbf{Formalising Manual Test Cases}: Storing each manual test case (actions, expected results) in a shared document would add clarity and accountability for each test run.
 \item \textbf{Automated Testing during Development}: We would prioritise the need test more thoroughly throughout the entire project, making sure no functionalities were left untested for longer than necessary.\end{itemize}
